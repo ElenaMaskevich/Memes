@@ -1,5 +1,4 @@
 import os
-
 import requests
 import allure
 from endpoints.base_api import BaseApi

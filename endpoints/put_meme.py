@@ -1,5 +1,4 @@
 import os
-
 import requests
 import allure
 from endpoints.base_api import BaseApi
@@ -25,7 +24,6 @@ class PutMemeById(BaseApi):
     @allure.step('Check response name')
     def check_response_text(self, text):
         return self.response_json['text'] == text
-
 
     @allure.step('Trying put meme without auth')
     def put_meme_not_auth(self, meme_id, payload):

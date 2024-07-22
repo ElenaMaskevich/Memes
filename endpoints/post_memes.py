@@ -3,7 +3,6 @@ import requests
 import allure
 from endpoints.base_api import BaseApi
 from endpoints.schemas import CreateMeme
-# from api_tests_elena_maskevich.endpoints.schemas import CreatedObject
 
 base_url = 'http://167.172.172.115:52355/meme'
 
@@ -22,7 +21,6 @@ class PostCreateMeme(BaseApi):
         self.response_json = self.response.json()
         print(self.response_json)
         self.data = CreateMeme(**self.response_json)
-
 
     @allure.step('Trying to create meme without auth')
     def create_meme_no_auth(self, payload):

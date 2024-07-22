@@ -1,9 +1,9 @@
+from endpoints.base_api import BaseApi
 import os
 import allure
 import requests
 
 base_url = 'http://167.172.172.115:52355/authorize'
-from endpoints.base_api import BaseApi
 
 token = os.getenv('TOKEN')
 

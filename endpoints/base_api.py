@@ -9,7 +9,6 @@ class BaseApi:
     response_meme: requests.Response
     meme_json: dict
 
-
     @allure.step('Check status code')
     def check_status_code_(self, code):
         return self.response.status_code == code
@@ -18,5 +17,3 @@ class BaseApi:
     def check_len_memes(self, length):
         dict_obj = self.response_json['data']
         return len(dict_obj) >= length
-
-

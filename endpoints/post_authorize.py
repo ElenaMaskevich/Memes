@@ -1,8 +1,6 @@
 import os
-
 import allure
 import requests
-
 import dotenv
 from dotenv import set_key
 from endpoints.base_api import BaseApi

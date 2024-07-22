@@ -1,7 +1,4 @@
-import allure
-import pytest
 from tests.data import payloads
-from data.payloads import payload_create_meme
 from conftest import (check_authorize, check_token, create_meme, get_all_memes, create_new_meme, get_meme_by_id,
                       put_meme_by_id, delete_meme_by_id)
 
