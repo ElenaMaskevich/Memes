@@ -20,3 +20,8 @@ class GetAllMemes(BaseApi):
     def get_memes_not_authorized(self):
         self.response = requests.request('GET', base_url)
         print(self.response)
+
+    @allure.step('Check memes length')
+    def check_len_memes(self, length):
+        dict_obj = self.response_json['data']
+        return len(dict_obj) >= length

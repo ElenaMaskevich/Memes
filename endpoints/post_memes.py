@@ -39,6 +39,22 @@ class PostCreateMeme(BaseApi):
         self.meme_json = self.response_meme.json()
         return self.meme_json['id'] == meme_id
 
-    @allure.step('Check response name')
-    def check_response_name(self, name):
-        return self.response_json['name'] == name
+    @allure.step('Check response info')
+    def check_response_info(self, info):
+        return self.response_json['info'] == info
+
+    @allure.step('Check response tags')
+    def check_response_tags(self, tags):
+        return self.response_json['tags'] == tags
+
+    @allure.step('Check response text')
+    def check_response_text(self, text):
+        return self.response_json['text'] == text
+
+    @allure.step('Check response updated by')
+    def check_response_updated(self, updated_by):
+        return self.response_json['updated_by'] == updated_by
+
+    @allure.step('Check response url')
+    def check_response_url(self, url):
+        return self.response_json['url'] == url

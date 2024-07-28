@@ -39,21 +39,15 @@ def create_meme():
             "text": "Some meme",
             "url": "www.testsetset.com"
         }
-    headers = {
-        'Authorization': token,
-    }
-
-    response = requests.post(
-        base_url,
-        json=payload,
-        headers=headers
-    )
-    print(response.json())
-    meme_id = response.json()['id']
-    print(f'Created meme with id {response.json()["id"]}')
+    create_meme = PostCreateMeme()
+    create_meme.create_meme(payload=payload)
+    meme_id = create_meme.response.json()['id']
+    print(f'Created meme with id {meme_id}')
     yield meme_id
-    requests.delete(f'{base_url}/{meme_id}')
+    deleted_meme=DeleteMeme()
+    deleted_meme.delete_meme(meme_id)
     print(f'Deleted meme with id {meme_id}')
+
 
 
 @pytest.fixture()
