@@ -14,7 +14,7 @@ payload_create_meme = {
 
 payload_put_meme = {
             "id": '',
-            "info": {"updated meme":"new"},
+            "info": {"updated meme": "new"},
             "tags": [
                 "updated",
                 "another tag"

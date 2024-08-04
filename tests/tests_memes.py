@@ -23,10 +23,10 @@ def test_create_new_meme(create_new_meme):
     create_new_meme.create_meme(payloads.payload_create_meme)
     assert create_new_meme.check_status_code_(200)
     assert create_new_meme.check_created_meme_by_id()
-    assert create_new_meme.check_response_info({"elena": "testing"})
-    assert create_new_meme.check_response_tags(["memes", "another tag"])
-    assert create_new_meme.check_response_text("Some meme")
-    assert create_new_meme.check_response_url('www.testsetset.com')
+    assert create_new_meme.check_response_info(payloads.payload_create_meme['info'])
+    assert create_new_meme.check_response_tags(payloads.payload_create_meme['tags'])
+    assert create_new_meme.check_response_text(payloads.payload_create_meme['text'])
+    assert create_new_meme.check_response_url(payloads.payload_create_meme['url'])
 
 
 def test_not_possible_get_meme_by_id_if_no_auth(create_meme, get_meme_by_id):
@@ -52,9 +52,9 @@ def test_update_meme(create_meme, put_meme_by_id):
     payload['id'] = create_meme
     put_meme_by_id.put_meme(create_meme, payload)
     assert put_meme_by_id.check_status_code_(200)
-    assert put_meme_by_id.check_response_text('updated meme')
-    assert put_meme_by_id.check_response_info({"updated meme":"new"})
-    assert put_meme_by_id.check_response_tags(["updated", "another tag"])
+    assert put_meme_by_id.check_response_text(payloads.payload_put_meme['text'])
+    assert put_meme_by_id.check_response_info(payloads.payload_put_meme['info'])
+    assert put_meme_by_id.check_response_tags(payloads.payload_put_meme['tags'])
 
 
 def test_not_possible_delete_meme_if_no_auth(create_meme, delete_meme_by_id):
